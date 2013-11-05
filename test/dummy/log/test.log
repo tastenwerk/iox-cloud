@@ -1,0 +1,1790 @@
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instanciate_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (125.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (125.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to IoxTranslations (20130101000001)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_translations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "locale" varchar(255) DEFAULT 'default', "template" varchar(255) DEFAULT 'default', "title" varchar(255), "subtitle" varchar(255), "meta_description" varchar(255), "meta_keywords" varchar(255), "content" text, "created_by" integer, "updated_by" integer, "deleted_by" integer, "webbit_id" integer, "webpage_id" integer, "deleted_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130101000001"]]
+  [1m[36m (136.2ms)[0m  [1mcommit transaction[0m
+Migrating to IoxWebfiles (20130101000004)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_webfiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "file_file_name" varchar(255), "file_content_type" varchar(255), "file_file_size" integer, "file_updated_at" datetime, "name" varchar(255), "description" varchar(255), "content_type" varchar(255), "copyright" varchar(255), "orig_date" datetime, "published" boolean DEFAULT 't', "webpage_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130101000004"]]
+  [1m[36m (139.3ms)[0m  [1mcommit transaction[0m
+Migrating to IoxWebpageStats (20130101000005)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_webpage_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ip_addr" varchar(255), "user_agent" varchar(255), "os" varchar(255), "views" integer DEFAULT 1, "visits" integer DEFAULT 1, "lang" varchar(255), "webpage_id" integer, "day" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130101000005"]]
+  [1m[36m (140.4ms)[0m  [1mcommit transaction[0m
+Migrating to IoxWebpages (20130101000006)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_webpages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "slug" varchar(255), "template" varchar(255), "master_id" integer, "parent_id" integer, "updated_by" integer, "created_by" integer, "published" boolean DEFAULT 'f', "position" integer DEFAULT 99, "deleted_at" datetime, "type" varchar(255), "show_in_menu" boolean DEFAULT 't', "show_in_sitemap" boolean DEFAULT 't', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130101000006"]]
+  [1m[36m (141.4ms)[0m  [1mcommit transaction[0m
+Migrating to IoxWebbits (20130101000007)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "iox_webbits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "plugin_type" varchar(255), "css_classes" varchar(255), "webpage_id" integer, "category" varchar(255), "icon" varchar(255) DEFAULT 'icon-align-left', "deleted_at" datetime, "parent_id" integer, "links_to_webbit_id" integer, "position" integer DEFAULT 999, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130101000007"]]
+  [1m[36m (140.1ms)[0m  [1mcommit transaction[0m
+Migrating to IoxUsers (20130920150000)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "firstname" varchar(255), "lastname" varchar(255), "phone" varchar(255), "time_zone" varchar(255), "lang" varchar(255), "email" varchar(255), "last_login_at" datetime, "last_request_at" datetime, "last_request_ip" varchar(255), "last_login_ip" varchar(255), "settings" text, "suspended" boolean DEFAULT 'f', "roles" varchar(255) DEFAULT '---
+- user
+', "password_digest" varchar(255), "confirmation_key" varchar(255), "confirmation_key_valid_until" datetime, "registration_ip" varchar(255), "login_failures" integer, "last_login_failure" datetime, "last_login_failure_ip" varchar(255), "last_activities_call" datetime, "registration_completed" boolean, "can_write_apps" varchar(255), "can_read_apps" varchar(255), "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130920150000"]]
+  [1m[36m (139.8ms)[0m  [1mcommit transaction[0m
+Migrating to IoxActivities (20130922172200)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "iox_activities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "obj_id" integer, "obj_type" varchar(255), "obj_name" varchar(255), "obj_path" varchar(255), "recipient_name" varchar(255), "recipient_path" varchar(255), "action" varchar(255), "icon_class" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130922172200"]]
+  [1m[36m (135.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to IoxPrivileges (20130510085200)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "iox_privileges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "can_write" boolean DEFAULT 'f', "can_delete" boolean DEFAULT 'f', "can_share" boolean DEFAULT 'f', "created_by" integer, "updated_by" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130510085200"]]
+  [1m[36m (176.0ms)[0m  [1mcommit transaction[0m
+Migrating to IoxCloudContainers (20130510090000)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_cloud_containers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "repos_name" varchar(255), "access" integer DEFAULT 1, "public_access_expires" date, "public_key" varchar(255), "created_at" datetime, "updated_by" integer, "created_by" integer, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130510090000"]]
+  [1m[36m (151.7ms)[0m  [1mcommit transaction[0m
+Migrating to IoxCloudStats (20130510092000)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "iox_cloud_stats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ip_addr" varchar(255), "user_agent" varchar(255), "os" varchar(255), "views" integer DEFAULT 1, "visits" integer DEFAULT 1, "lang" varchar(255), "cloud_container_id" integer, "day" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130510092000"]]
+  [1m[36m (148.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instanciate_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instanciate_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instanciate_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------------
+IoxCloudContainerTest: test_saving_an_instance_of_a_cloud_container_requires_a_name
+-----------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------
+IoxCloudContainerTest: test_saving_cc_with_a_name_is_valid
+----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (12.0ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:17:24 UTC +00:00], ["name", "Test4"], ["updated_at", Tue, 05 Nov 2013 15:17:24 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:18:56 UTC +00:00], ["name", "Test4"], ["updated_at", Tue, 05 Nov 2013 15:18:56 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:26:19 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:26:19 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:26:19 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:26:19 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:27:25 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:27:25 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:27:25 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:27:25 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:27:25 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:27:25 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:35:23 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:35:23 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:35:23 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:35:23 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:35:23 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:35:23 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:44:53 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:44:53 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:44:53 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:44:53 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:44:53 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:44:53 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00], ["name", "test"], ["updated_at", Tue, 05 Nov 2013 15:45:09 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (27.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00], ["name", "test"], ["public_key", "TmGcpTTVQ"], ["updated_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00], ["name", "test"], ["public_key", "SxfIVLHly"], ["updated_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00], ["name", "test"], ["public_key", "AlUrTcSwp"], ["updated_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00], ["name", "test"], ["public_key", "DjNKVmcnB"], ["updated_at", Tue, 05 Nov 2013 15:45:51 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'rBGGVnzgu'
+SQLite3::SQLException: no such column: iox_cloud_containers.deleted_at: SELECT COUNT(*) FROM "iox_cloud_containers"  WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'rBGGVnzgu'
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'EfEUVXPZl'
+SQLite3::SQLException: no such column: iox_cloud_containers.deleted_at: SELECT COUNT(*) FROM "iox_cloud_containers"  WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'EfEUVXPZl'
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'zmXqbKdpR'[0m
+SQLite3::SQLException: no such column: iox_cloud_containers.deleted_at: SELECT COUNT(*) FROM "iox_cloud_containers"  WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'zmXqbKdpR'
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'slmYIXeNI'
+SQLite3::SQLException: no such column: iox_cloud_containers.deleted_at: SELECT COUNT(*) FROM "iox_cloud_containers"  WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'slmYIXeNI'
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'joGvttPNM'[0m
+SQLite3::SQLException: no such column: iox_cloud_containers.deleted_at: SELECT COUNT(*) FROM "iox_cloud_containers"  WHERE "iox_cloud_containers"."deleted_at" IS NULL AND "iox_cloud_containers"."public_key" = 'joGvttPNM'
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zIyZyBWhR'
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UJbJJRbMB'
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00], ["name", "test"], ["public_key", "UJbJJRbMB"], ["updated_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'MLgdXeECt'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00], ["name", "test"], ["public_key", "MLgdXeECt"], ["updated_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'phiCQwzxH'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00], ["name", "test"], ["public_key", "phiCQwzxH"], ["updated_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hrVyQNcQJ'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00], ["name", "test"], ["public_key", "hrVyQNcQJ"], ["updated_at", Tue, 05 Nov 2013 15:53:03 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VhcnLsNxK'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VhcnLsNxK' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QgAKiFFoR'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QgAKiFFoR' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'eEREZskbT'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'eEREZskbT' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00], ["name", "test"], ["public_key", "eEREZskbT"], ["updated_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'mbezpgkgp'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'mbezpgkgp' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00], ["name", "test"], ["public_key", "mbezpgkgp"], ["updated_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'bHkvsWFgu'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'bHkvsWFgu' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00], ["name", "test"], ["public_key", "bHkvsWFgu"], ["updated_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VDqGtgnCj'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VDqGtgnCj' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00], ["name", "test"], ["public_key", "VDqGtgnCj"], ["updated_at", Tue, 05 Nov 2013 15:53:20 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'EjAgayEfv'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'EjAgayEfv' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'aHQgANjAO'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'aHQgANjAO' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yfkDSbmWc'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yfkDSbmWc' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:59:26 UTC +00:00], ["name", "test"], ["public_key", "yfkDSbmWc"], ["updated_at", Tue, 05 Nov 2013 15:59:26 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hIvhQTmpd'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hIvhQTmpd' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:59:27 UTC +00:00], ["name", "test"], ["public_key", "hIvhQTmpd"], ["updated_at", Tue, 05 Nov 2013 15:59:27 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FRgyNsJvv'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FRgyNsJvv' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:59:27 UTC +00:00], ["name", "test"], ["public_key", "FRgyNsJvv"], ["updated_at", Tue, 05 Nov 2013 15:59:27 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'CYzCltnSK'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'CYzCltnSK' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:59:27 UTC +00:00], ["name", "test"], ["public_key", "CYzCltnSK"], ["updated_at", Tue, 05 Nov 2013 15:59:27 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'trDXzJHtU'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'trDXzJHtU' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'waTVftwUK'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'waTVftwUK' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'oukDVOSwb'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'oukDVOSwb' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00], ["name", "test"], ["public_key", "oukDVOSwb"], ["updated_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZOsnxDsvu'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZOsnxDsvu' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00], ["name", "test"], ["public_key", "ZOsnxDsvu"], ["updated_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'sjwoWLocn'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'sjwoWLocn' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00], ["name", "test"], ["public_key", "sjwoWLocn"], ["updated_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'cVwRVaVFo'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'cVwRVaVFo' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00], ["name", "test"], ["public_key", "cVwRVaVFo"], ["updated_at", Tue, 05 Nov 2013 15:59:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'auJCBJPXE'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'auJCBJPXE' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LaUuZJmsF'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LaUuZJmsF' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'BnJYWiLkE'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'BnJYWiLkE' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00], ["name", "test"], ["public_key", "BnJYWiLkE"], ["updated_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nNOIntDLU'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nNOIntDLU' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00], ["name", "test"], ["public_key", "nNOIntDLU"], ["updated_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'bnBRnQWNs'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'bnBRnQWNs' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00], ["name", "test"], ["public_key", "bnBRnQWNs"], ["updated_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LQkxTtOLY'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LQkxTtOLY' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00], ["name", "test"], ["public_key", "LQkxTtOLY"], ["updated_at", Tue, 05 Nov 2013 16:11:16 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LEhNyvlwx'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LEhNyvlwx' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'onQqylyqc'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'onQqylyqc' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RtedHHeLb'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RtedHHeLb' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00], ["name", "test"], ["public_key", "RtedHHeLb"], ["updated_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XdUiTSZBp'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XdUiTSZBp' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00], ["name", "test"], ["public_key", "XdUiTSZBp"], ["updated_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'xrEtCVvTN'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'xrEtCVvTN' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00], ["name", "test"], ["public_key", "xrEtCVvTN"], ["updated_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'lwcEAvBdV'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'lwcEAvBdV' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00], ["name", "test"], ["public_key", "lwcEAvBdV"], ["updated_at", Tue, 05 Nov 2013 16:12:19 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tdHlsFdtI'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tdHlsFdtI' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YGHXJsbhd'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YGHXJsbhd' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZqyuEfhzH'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZqyuEfhzH' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00], ["name", "test"], ["public_key", "ZqyuEfhzH"], ["updated_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'MQHBetwbH'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'MQHBetwbH' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00], ["name", "test"], ["public_key", "MQHBetwbH"], ["updated_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'AwEVPWnST'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'AwEVPWnST' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00], ["name", "test"], ["public_key", "AwEVPWnST"], ["updated_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OMIXyqLAS'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OMIXyqLAS' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00], ["name", "test"], ["public_key", "OMIXyqLAS"], ["updated_at", Tue, 05 Nov 2013 16:16:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QQZkBbHKu'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QQZkBbHKu' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wXiqtgfil'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wXiqtgfil' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XKwRXOuIN'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XKwRXOuIN' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00], ["name", "test"], ["public_key", "XKwRXOuIN"], ["updated_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hOUClBHnM'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hOUClBHnM' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00], ["name", "test"], ["public_key", "hOUClBHnM"], ["updated_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'MRxQPvuua'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'MRxQPvuua' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00], ["name", "test"], ["public_key", "MRxQPvuua"], ["updated_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'THduDfsKk'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'THduDfsKk' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00], ["name", "test"], ["public_key", "THduDfsKk"], ["updated_at", Tue, 05 Nov 2013 16:17:15 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yRfJHGhif'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yRfJHGhif' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nymGhratK'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nymGhratK' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RhKiZELUt'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RhKiZELUt' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00], ["name", "test"], ["public_key", "RhKiZELUt"], ["updated_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rpzSRdGFx'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rpzSRdGFx' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00], ["name", "test"], ["public_key", "rpzSRdGFx"], ["updated_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'PKieAKcvi'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'PKieAKcvi' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00], ["name", "test"], ["public_key", "PKieAKcvi"], ["updated_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZgdMWnjrf'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZgdMWnjrf' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00], ["name", "test"], ["public_key", "ZgdMWnjrf"], ["updated_at", Tue, 05 Nov 2013 16:17:46 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pgLUHjXcl'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pgLUHjXcl' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tYAEWqaYB'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tYAEWqaYB' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'fbUHVINTf'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'fbUHVINTf' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00], ["name", "test"], ["public_key", "fbUHVINTf"], ["updated_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'HuOwOQkco'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'HuOwOQkco' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00], ["name", "test"], ["public_key", "HuOwOQkco"], ["updated_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QmfktOkRL'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QmfktOkRL' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00], ["name", "test"], ["public_key", "QmfktOkRL"], ["updated_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FPYhHxtrd'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FPYhHxtrd' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00], ["name", "test"], ["public_key", "FPYhHxtrd"], ["updated_at", Tue, 05 Nov 2013 16:18:32 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gAXFYUACB'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gAXFYUACB' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YbgYbUHnW'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YbgYbUHnW' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'IHGSlkXyB'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'IHGSlkXyB' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00], ["name", "test"], ["public_key", "IHGSlkXyB"], ["updated_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JKFLvGZhS'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JKFLvGZhS' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00], ["name", "test"], ["public_key", "JKFLvGZhS"], ["updated_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'kMIOhEOKm'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'kMIOhEOKm' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00], ["name", "test"], ["public_key", "kMIOhEOKm"], ["updated_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'kfAwkpegs'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'kfAwkpegs' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00], ["name", "test"], ["public_key", "kfAwkpegs"], ["updated_at", Tue, 05 Nov 2013 16:18:50 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'omDRwSOZb'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'omDRwSOZb' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RWgaInQKZ'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RWgaInQKZ' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hOsObQbgi'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hOsObQbgi' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00], ["name", "test"], ["public_key", "hOsObQbgi"], ["updated_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gwtkpAnkp'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gwtkpAnkp' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00], ["name", "test"], ["public_key", "gwtkpAnkp"], ["updated_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'TOSBTosHR'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'TOSBTosHR' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00], ["name", "test"], ["public_key", "TOSBTosHR"], ["updated_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XEYbHAzSX'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XEYbHAzSX' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00], ["name", "test"], ["public_key", "XEYbHAzSX"], ["updated_at", Tue, 05 Nov 2013 16:25:33 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LFJsbdaMZ'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LFJsbdaMZ' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'GvxVXGmBC'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'GvxVXGmBC' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UpopARUTp'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UpopARUTp' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00], ["name", "test"], ["public_key", "UpopARUTp"], ["updated_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DtcdTPGjd'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DtcdTPGjd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00], ["name", "test"], ["public_key", "DtcdTPGjd"], ["updated_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wxotujwPi'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wxotujwPi' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00], ["name", "test"], ["public_key", "wxotujwPi"], ["updated_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tvhcwZDjh'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tvhcwZDjh' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00], ["name", "test"], ["public_key", "tvhcwZDjh"], ["updated_at", Tue, 05 Nov 2013 16:25:53 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nFbGkZkDb'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nFbGkZkDb' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'IHUeZyrcp'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'IHUeZyrcp' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zjeDcjpFB'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zjeDcjpFB' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00], ["name", "test"], ["public_key", "zjeDcjpFB"], ["updated_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OxrWhweDv'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OxrWhweDv' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00], ["name", "test"], ["public_key", "OxrWhweDv"], ["updated_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VrGFOzDKB'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VrGFOzDKB' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00], ["name", "test"], ["public_key", "VrGFOzDKB"], ["updated_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DsisWqtXH'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DsisWqtXH' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00], ["name", "test"], ["public_key", "DsisWqtXH"], ["updated_at", Tue, 05 Nov 2013 16:38:19 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+IoxCloudContainerTest: test_cc_requires_a_name
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FNNCXrIdL'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FNNCXrIdL' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+IoxCloudContainerTest: test_cc_with_a_name_is_valid
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OiSZySTpB'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OiSZySTpB' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+IoxCloudContainerTest: test_instance_of_a_new_cloud_container_(cc)
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------------
+IoxCloudContainerTest: test_setting_path_to_a_valid_directory_will_store_a_cc
+-----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FoQQeiGaU'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FoQQeiGaU' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00], ["name", "test"], ["public_key", "FoQQeiGaU"], ["updated_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_cc_without_a_user_will_raise_an_InvalidUserError
+------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'neZpqctrI'
+  [1m[36mIox::CloudContainer Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'neZpqctrI' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00], ["name", "test"], ["public_key", "neZpqctrI"], ["updated_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_to_db_will_require_a_iox.cloud_storage_path_to_be_set_in_configuration.iox
+--------------------------------------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JsqxCjWtF'[0m
+  [1m[35mIox::CloudContainer Exists (0.0ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JsqxCjWtF' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00], ["name", "test"], ["public_key", "JsqxCjWtF"], ["updated_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------------------------------------------------
+IoxCloudContainerTest: test_storing_withoug_having_iox.cloud_storage_path_set,_will_raise_an_error
+--------------------------------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OxZLrEvIl'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OxZLrEvIl' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00], ["name", "test"], ["public_key", "OxZLrEvIl"], ["updated_at", Tue, 05 Nov 2013 16:38:56 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------
+IoxCloudTest: test_truth
+------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction

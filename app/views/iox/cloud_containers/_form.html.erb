@@ -1,0 +1,55 @@
+<script id="iox-content-form-template" type="text/html">
+
+  <h3 class="title" data-bind="html: (id ? name() : '<%= t('cloud_container.new') %>')+(_parent() ? ' in <strong>&raquo;'+_parent().name()+'&laquo;</strong>' : '')"></h3>
+
+
+  <form data-bind="submit: (id ? saveItemForm : createItemForm)" class="iox-form">
+
+    <div class="scrollable-content w-header w-footer w-padding">
+
+      <div class="fields-header"><%= t('general') %></div>
+
+      <div class="field-box required">
+        <label for="name"><%= t('name') %></label>
+        <input type="text" name="spot[name]" data-bind="value: name" required validationMessage="<%= t('webpage.name_required') %>" />
+      </div>
+
+      <div class="field-box">
+        <label for="cloud_container[public_access_expires]"><%= t('cloud_container.public_access_expires') %></label>
+        <input class="datepicker" type="text" name="cloud_container[public_access_expires]" data-bind="value: public_access_expires() ? moment(public_access_expires()).format('YYYY-MM-DD') : ''" />
+        <span class="desc"><%= t('date_format') %></span>
+      </div>
+
+      <div class="fields-header"><%= t('general') %></div>
+
+      <div class="field-box">
+        <input type="radio" name="cloud_container[access]" value="0" data-bind="checked: access() == 0" />
+        <span class="desc">
+          <strong><%= t('cloud_container.is_public') %></strong>
+          <%= t('cloud_container.public_desc') %>
+        </span>
+      </div>
+
+      <div class="field-box">
+        <input type="radio" name="cloud_container[access]" value="1" data-bind="checked: access() == 1" />
+        <span class="desc">
+          <strong><%= t('cloud_container.is_default') %></strong>
+          <%= t('cloud_container.default_desc', name: current_user.full_name) %>
+        </span>
+      </div>
+
+      <div class="field-box">
+        <input type="radio" name="cloud_container[access]" value="2" data-bind="checked: access() == 2" />
+        <span class="desc">
+          <strong><%= t('cloud_container.is_private') %></strong>
+          <%= t('cloud_container.private_desc', name: current_user.full_name) %>
+        </span>
+      </div>
+
+    </div>
+
+    <%= render partial: '/iox/common/form_footer', locals: { item_name: 'cloud_container' } %>
+
+  </form>
+
+</script>

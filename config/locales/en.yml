@@ -1,0 +1,14 @@
+en:
+  cloud_containers:
+    title: "Cloud"
+
+  cloud_container:
+    new: "New Storage Container"
+    access: "Access"
+    is_public: "Public"
+    public_access_expires: "Public Access expires"
+    public_desc: "everybody in knowledge of the link below can access this container's content. If unchecked, this container's content can still be read by other authenticated users"
+    is_private: "Private"
+    private_desc: "Only '%{name}' (this is you) can read this container's content"
+    default_desc: "Authenticated users can access and change content"
+    is_default: "Default"

@@ -1,0 +1,185 @@
+<div class="iox-sidebar">
+
+  <!--<div class="iox-sidebar-arrow"></div>-->
+  <div class="iox-sidebar-frame">
+
+    <div class="iox-tree-control">
+      <form>
+        <input type="text" name="query" placeholder="<%= t('filter_results') %> " />
+        <input type="submit" value="<%= t('search') %>" />
+        <a href="#" data-tree-role="search" title="<%= t('filter_results') %>"><i class="icon-search"></i></a>
+        <a href="#" data-tree-role="refresh" title="<%= t('refresh') %>"><i class="icon-refresh"></i></a>
+        <a href="#" class="btn btn-success" data-tree-role="new" title="<%= t('cloud_container.new') %>"><i class="icon-plus"></i></a>
+      </form>
+    </div>
+
+    <ul id="iox-content-list"></ul>
+
+  </div>
+
+</div>
+
+<div class="iox-content offset-sidebar">
+  <div class="iox-content-frame hide">
+    <div id="iox-content-details" class="iox-form" data-bind="template: { name: 'iox-content-form-template' }">
+    </div>
+  </div>
+  <div class="iox-details-placeholder">
+    <i class="icon-info-sign"></i>
+    <%= t('webpages.click_on_webpage_to_show_details') %>
+  </div>
+</div>
+
+<%= render partial: 'form' %>
+
+<script id="iox-tree-item-template" type="text/html">
+  <li data-bind=" attr: { 'data-id': id, id: 'item_'+id }, click: markItem">
+    <div class="item clearfix" data-bind=" css: { selected: _selected, hide: _hide }">
+      <div class="actions">
+        <a class="action-icon publish-action" data-bind="click: publishItem">
+          <i class="icon-ban-circle success published-status" data-bind="css: { 'hide': published() }" rel="tooltip" title="<%= t('webpage.publish') %>"></i>
+          <i class="icon-ok-sign published-status" data-bind="css: { 'hide': !published() }" rel="tooltip" title="<%= t('webpage.unpublish') %>"></i>
+        </a>
+        <!-- ko if: is_public() -->
+        <span class="icon-unlock" title="<%= t('cloud_container.is_public') %>"></span>
+        <!-- /ko -->
+        <!-- ko if: is_private() -->
+        <span class="icon-lock" title="<%= t('cloud_container.is_private') %>"></span>
+        <!-- /ko -->
+      </div>
+      <a class="title" data-bind="click: listContent, attr: { title: name }, text: name"></a>
+      &nbsp;&nbsp;<span class="desc" data-bind="text: public_access_expires() ? moment(public_access_expires()).format('YYYY-MM-DD') : ''"></span>
+    </div>
+  </li>
+</script>
+
+<script type="text/javascript">
+
+  $(document).ready( function(){
+
+    $('#iox-content-list').ioxTree({
+      url: '/iox/cloud_containers',
+      observe: ['name', 'access', 'public_access_expires'],
+      control: $('.iox-tree-control'),
+      i18n:{
+        noEntriesFound: '<%= t('filter_no_entries_found') %>'
+      },
+      events: {
+        afterRemove: function afterRemove( item ){
+          $('.iox-details-placeholder').show();
+          $('.iox-content-frame').hide();
+        },
+        item: {
+
+          /**
+           * lists content of this item in a grid
+           */
+          listContent: function listContent( item, e ){
+            console.log('list content');
+          },
+
+          /*
+           * show the webpage form (depending on the webpage's template)
+           * for editing existing webpages
+           */
+          showForm: function showForm( item, e ){
+            $('.iox-details-placeholder').hide();
+            $('.iox-content-frame').show();
+            setupItemForm( item );
+          },
+
+          /**
+           * save an existing webpage
+           */
+          saveItemForm: function saveItemForm( form ){
+            var self = this;
+            if( this._validator.validate() ){
+              $('.iox-content-frame').block();
+              $.ajax({ url: self._master.options.url+'/'+self.id, data: $(form).serializeArray(), dataType: 'json', type: 'put'
+              }).done( function( json ){
+                $('.iox-content-frame').unblock();
+                iox.flash.rails( json.flash );
+              });
+            } else {
+              iox.flash.notice('<%= t('please_fill_out_all_fields') %>');
+              return false;
+            }
+          },
+
+          /**
+           * create a new item
+           */
+          createItemForm: function createItemForm( form ){
+            var TreeItem = this.constructor;
+            var self = this;
+            if( this._validator.validate() ){
+              $('.iox-content-frame').block();
+              $.ajax({ url: self._master.options.url, data: $(form).serializeArray(), dataType: 'json', type: 'post' }).done( function( json ){
+                $('.iox-content-frame').unblock();
+                if( json.success ){
+                  var item = new TreeItem( json.item, self._master );
+                  if( item.parent_id ){
+                    var $parentLi = $(self._master.obj).find('li[data-id='+item.parent_id+']');
+                    var parent = ko.dataFor($parentLi.get(0));
+                    if( $parentLi.find('.open-folder').length ){
+                      if( $parentLi.find('.open-folder').length && $parentLi.find('.open-folder').hasClass('open') )
+                        parent.children.push( item );
+                      else
+                        $parentLi.find('.open-folder').click();
+                    } else{
+                      $parentLi.find('.folder-spacer').addClass('open-folder').click();
+                    }
+                  } else
+                    self._master.items.push( item );
+                  setupItemForm( item );
+                }
+                iox.flash.rails( json.flash );
+              });
+            } else {
+              iox.flash.notice('<%= t('please_fill_out_all_fields') %>');
+              return false;
+            }
+          },
+
+        },
+        tree: {
+
+          /**
+           * load a new item (by asking for json object from
+           * server). this gives opportunities to set default
+           * values at application level
+           */
+          newItemForm: function newItem( e, tree, TreeItem ){
+            var self = this;
+            $('.iox-details-placeholder').show().block();
+            $('.iox-content-frame').hide();
+            $(this).block({ message: iox.loaderHorizontal });
+            $.getJSON( tree.options.url+'/new' ).done( function( json ){
+              $('.iox-details-placeholder').unblock().hide();
+              $('.iox-content-frame').show();
+              var item = new TreeItem(json, tree);
+              if( tree._selectedItem )
+                item._parent( tree._selectedItem );
+              setupItemForm( item );
+              $('#iox-content-details input[type=text]:first').focus();
+              $(self).unblock();
+            });
+          }
+
+        }
+
+      }
+    });
+
+
+    function setupItemForm( item ){
+      ko.cleanNode($('#iox-content-details').get(0));
+      $('#iox-content-details').html('');
+      ko.applyBindings( item, $('#iox-content-details').get(0) );
+      item._validator = $("#iox-content-details").kendoValidator().data("kendoValidator");
+      $(".datepicker").kendoDatePicker({ format: 'yyyy-MM-dd'}).on('click', function(){
+        $(this).data("kendoDatePicker").open();
+      });
+    }
+  });
+</script>
