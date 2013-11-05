@@ -2,8 +2,9 @@ require 'test_helper'
 
 class IoxCloudContainerTest < ActiveSupport::TestCase
 
-  def get_cc
-    Iox::CloudContainer.where( name: @cc_attrs[:name] ).first
+  def create_cc
+    Rails.configuration.iox.cloud_storage_path = 'cloud-storage/'
+    Iox::CloudContainer.create( @cc_attrs )
   end
 
   setup do
@@ -55,15 +56,42 @@ class IoxCloudContainerTest < ActiveSupport::TestCase
   end
 
   test "cc can be retrieved" do
-    cc = get_cc    
+    cc = create_cc
     assert_instance_of Iox::CloudContainer, cc
   end
 
-  test "returns full path to the this container" do
-    Rails.configuration.iox.cloud_storage_path = 'cloud-storage/'
-    cc = get_cc
-    puts cc.inspect
-    assert_equal "#{Iox::CloudContainer.storage_path}/#{cc.public_key}", cc.storage_path
+  test "returns full path to this container" do
+    cc = create_cc
+    assert_equal "#{Iox::CloudContainer.storage_path}/cloud_container/#{cc.public_key}", cc.storage_path
   end
-  
+
+  test "lists documents inside this container" do
+    cc = create_cc
+    assert_equal 1, cc.list.size
+    assert_equal "_ioX-cloud-repository", cc.list.first[:name]
+  end
+
+  test "lists folders inside this container" do
+    cc = create_cc
+    assert_equal 0, cc.list(:folders).size
+  end
+
+  test "returns the actual file of a container" do
+    cc = create_cc
+    assert_equal "This is an ioX cloud repository\nYou can delete this file\n", cc.get_file( cc.list.first[:oid] )
+  end
+
+  test "adds a file to the container" do
+    cc = create_cc
+    file = File::open( File::expand_path( '../favicon.ico', __FILE__ ), 'r' )
+    assert cc.add_file( file )
+    assert_equal 2, cc.list.size
+  end
+
+  test "adds a folder to the container" do
+    cc = create_cc
+    assert cc.add_folder( "test-folder" )
+    assert_equal 2, cc.list.size
+  end
+
 end
