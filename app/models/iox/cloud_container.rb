@@ -14,7 +14,7 @@ module Iox
       #
       # raises Iox::Cloud::InvlaidPath if path cannot be created
       #
-      def get_cloud_storage_path
+      def storage_path
         path = ""
         if Rails.configuration.iox.cloud_storage_path
           if Rails.configuration.iox.cloud_storage_path[0,1] == '/'

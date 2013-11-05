@@ -50,32 +50,48 @@ module Iox
         git_init( :bare )
       end
 
+      # initializes this cloud container's git repository
+      #
       def git_init( bare=nil )
         raise Iox::Cloud::InvalidUserError unless user
-        options = { author: {
-          email: user.email, 
-          name: user.full_name, 
-          time: Time.now }
-        }
         if bare == :bare
-          @repos = Rugged::Repository.init_at get_cloud_storage_path, :bare
+          create_plain_repos
         else
-          @repos = Rugged::Repository.new get_cloud_storage_path
+          @repo = Rugged::Repository.new storage_path
         end
       end
 
-      def get_cloud_storage_path
-        path = "#{Iox::CloudContainer.get_cloud_storage_path}/#{self.class.name.demodulize.underscore}/#{public_key}"
+      # return location of the git repository
+      # of this cloud container
+      #
+      # @return [string] path to this cloud container's git repository
+      def storage_path
+        path = "#{Iox::CloudContainer.storage_path}/#{self.class.name.demodulize.underscore}/#{public_key}"
         FileUtils::mkdir_p( path ) unless File::exists?( path )
         path
       end
 
-      def get_repos_db_path
-        File::join get_cloud_storage_path, "#{public_key}_db"
+      def create_plain_repos
+        @repo = Rugged::Repository.init_at storage_path, :bare
+        oid = @repo.write("This is an ioX cloud repository\nYou can delete this file\n", :blob)
+        index = Rugged::Index.new
+        index.add(:path => "_ioX-cloud-repository", :oid => oid, :mode => 0100644)
+        options = {}
+        options[:tree] = index.write_tree(@repo)
+        options[:author] = user_opts
+        options[:committer] = user_opts
+        options[:message] ||= "Initial repository commit"
+        options[:parents] = []
+        options[:update_ref] = 'HEAD'
+        Rugged::Commit.create(@repo, options)
       end
 
-      def get_repos_clone_path
-        File::join get_cloud_storage_path, "#{public_key}_clone"
+      private
+
+      def user_opts
+        { email: user.email, 
+          name: user.full_name, 
+          time: Time.now }
       end
 
     end
