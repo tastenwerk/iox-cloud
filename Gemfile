@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem "iox-cms", path: '../iox-cms'
 gem "git", "~> 1.2.6"
 gem "rugged"
+gem "rspec-rails"
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

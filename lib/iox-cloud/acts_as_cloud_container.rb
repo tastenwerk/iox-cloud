@@ -19,9 +19,11 @@ module Iox
         attr_accessor :user
 
         before_validation :gen_public_key, on: :create
-        after_create :git_init_bare
+
+        before_create :git_init_bare
 
         validates :name, presence: true
+        validates :user, presence: true
         validates :public_key, presence: true, uniqueness: true
 
       end
@@ -32,61 +34,86 @@ module Iox
       # list documents inside this
       # cloud container
       #
-      # @param type [Symbol] `:all` (default), `:files` or `:folders`
+      # @param path [String] - the directory to list the files for. Default: '.'
       #
-      def list( type = :all )
-        type = :tree if type == :folders
-        type = :blob if type == :files
+      def list( path = '.' )
         git_init unless @repo
-        head = @repo.lookup( @repo.head.target )
-        head.tree.inject([]) do |arr,obj|
-          arr << obj if type == :all || obj[:type] == type
+        #head = @repo.lookup( @repo.head.target )
+        #head.tree.inject([]) do |arr,obj|
+        folders = []
+        @repo.index.entries.inject([]) do |arr, ientry|
+          if File::dirname( ientry[:path] ) == path
+            arr << CloudFile.new( ientry, user, @repo )
+          elsif !folders.include?( File::dirname( ientry[:path] ) ) &&
+                ientry[:path].include?( '/' )
+            arr << CloudDirectory.new( ientry, user, @repo )
+            folders << File::dirname( ientry[:path] )
+          end
           arr
+        end
+      end
+
+      # looks up for the given path name and returns
+      # a file object if any
+      #
+      # @param path [String] the path the git repository
+      def get_file( path )
+        git_init unless @repo
+        if @repo.index[path]
+          return CloudFile.new( @repo.index[path], user, @repo )
         end
       end
 
       # looks up for the given oid and returns
       # a file object if any
       #
-      # @param oid [String] the object_id in the git repository
-      def get_file( oid )
+      # @param path [String] the path the git repository
+      def get_directory( path )
         git_init unless @repo
-        if obj = @repo.lookup( oid )
-          return obj.read_raw.data if obj.type == :blob
+        @repo.index.each do |ientry|
+          next unless File::dirname(ientry[:path]) == path
+          return CloudDirectory.new( ientry, user, @repo )
         end
       end
 
       # adds a file object to the repository
       #
-      # @param file [File] the file to be added
-      # @param message [String] a commit message (optional)
+      # @param name [String] the name this file should be stored under
+      # @param directory [String] the directory this file should be added
+      # @param data [IOStream] e.g.: #<File>.read
       #
-      def add_file( file, message = "added file" )
+      # @return itself (chainable)
+      #
+      def add_file( name, directory, data )
         git_init unless @repo
-        raise TypeError.new('given file must be of type File') unless file.is_a?(File)
-        oid = @repo.write( file.read, :blob )
-        @repo.index.add(:path => File::basename(file.path), :oid => oid, :mode => 0100644)
-        options = { message: message }
-        options[:tree] = @repo.index.write_tree(@repo)
-        options[:author] = user_opts
-        options[:committer] = user_opts
-        options[:parents] = @repo.empty? ? [] : [ @repo.head.target ].compact
-        options[:update_ref] = 'HEAD'
-        Rugged::Commit.create(@repo, options)
+        oid = @repo.write( data, :blob )
+        @repo.index.add( path: (directory.blank? || directory.match(/^\/$/) ? name : File::join( directory, name )),
+                          oid: oid,
+                          mode: 0100644 )
+        self
       end
 
       # adds a folder object to the repository
       #
       # @param name [String] the folder name to be added
+      # @return itself (chainable)
+      #
+      def add_directory( name )
+        git_init unless @repo
+        oid = @repo.write("", :blob)
+        @repo.index.add(:path => "#{name}/.git_keep", :oid => oid, :mode => 0100644)
+        self
+      end
+
+      # commit pending changes
+      #
       # @param message [String] a commit message (optional)
       #
-      def add_folder( name, message = "added folder" )
-        git_init unless @repo
-        oid = @repo.write("You can delete this file", :blob)
-        @repo.index.add(:path => "#{name}/_empty_folder", :oid => oid, :mode => 0100644)
+      def commit( message = "auto-message" )
         options = { message: message }
         options[:tree] = @repo.index.write_tree(@repo)
         options[:author] = user_opts
+        options[:time] = Time.now
         options[:committer] = user_opts
         options[:parents] = @repo.empty? ? [] : [ @repo.head.target ].compact
         options[:update_ref] = 'HEAD'
@@ -137,11 +164,12 @@ module Iox
 
       def create_plain_repos
         @repo = Rugged::Repository.init_at storage_path, :bare
-        oid = @repo.write("This is an ioX cloud repository\nYou can delete this file\n", :blob)
-        @repo.index.add(:path => "_ioX-cloud-repository", :oid => oid, :mode => 0100644)
+        oid = @repo.write("", :blob)
+        @repo.index.add(:path => ".git_keep", :oid => oid, :mode => 0100644)
         options = {}
         options[:tree] = @repo.index.write_tree(@repo)
         options[:author] = user_opts
+        options[:time] = Time.now
         options[:committer] = user_opts
         options[:message] ||= "Initial repository commit"
         options[:parents] = []
