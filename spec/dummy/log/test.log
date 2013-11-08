@@ -21246,3 +21246,979 @@ Migrating to IoxCloudStats (20130510092000)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:16:48 UTC +00:00], ["name", "test"], ["public_key", "DuxRgNRBu"], ["updated_at", Fri, 08 Nov 2013 14:16:48 UTC +00:00]]
   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QnoIVGmrr'[0m
+  [1m[35mIox::CloudContainer Exists (0.2ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QnoIVGmrr' LIMIT 1
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "QnoIVGmrr"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yNFIaBsQb'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yNFIaBsQb' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "yNFIaBsQb"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RIXhyhuEs'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RIXhyhuEs' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "RIXhyhuEs"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rPIzXVIBl'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rPIzXVIBl' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "rPIzXVIBl"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rJxhfAxOM'[0m
+  [1m[35mIox::CloudContainer Exists (0.2ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rJxhfAxOM' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "rJxhfAxOM"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QYyYhAtpV'
+  [1m[36mIox::CloudContainer Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QYyYhAtpV' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "QYyYhAtpV"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UtaHvCEDe'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UtaHvCEDe' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "UtaHvCEDe"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'BjuHCSUmW'
+  [1m[36mIox::CloudContainer Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'BjuHCSUmW' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "BjuHCSUmW"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WdpPNzGic'[0m
+  [1m[35mIox::CloudContainer Exists (0.2ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WdpPNzGic' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "WdpPNzGic"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OGtJQHLFp'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OGtJQHLFp' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "OGtJQHLFp"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JQmvSHFOz'[0m
+  [1m[35mIox::CloudContainer Exists (0.3ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JQmvSHFOz' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "JQmvSHFOz"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DVtutrVSz'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DVtutrVSz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "DVtutrVSz"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'phtRWfbOD'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'phtRWfbOD' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "phtRWfbOD"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WRvhWTxzX'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WRvhWTxzX' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QfvPSFXtS'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QfvPSFXtS' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'knqxKDEOi'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'knqxKDEOi' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nzsVitplf'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nzsVitplf' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'StlSONaUe'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'StlSONaUe' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "StlSONaUe"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'noABjFwhz'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'noABjFwhz' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'Onfoojsyi'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'Onfoojsyi' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "Onfoojsyi"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'AKyqpexzW'
+  [1m[36mIox::CloudContainer Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'AKyqpexzW' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "AKyqpexzW"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zWAANgXVb'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zWAANgXVb' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "zWAANgXVb"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'PCJcpFKWc'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'PCJcpFKWc' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "PCJcpFKWc"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hMMFUzNhy'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'hMMFUzNhy' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00], ["name", "test"], ["public_key", "hMMFUzNhy"], ["updated_at", Fri, 08 Nov 2013 14:36:43 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'riiuiFEdz'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'riiuiFEdz' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'cLtFzYlLt'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'cLtFzYlLt' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'KpsWpcQPM'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'KpsWpcQPM' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'oyBntExhj'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'oyBntExhj' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'qXaOjeagN'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'qXaOjeagN' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YpzOOJCYm'
+  [1m[36mIox::CloudContainer Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YpzOOJCYm' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gXYuoHxga'
+  [1m[36mIox::CloudContainer Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gXYuoHxga' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'vFPQUoQTF'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'vFPQUoQTF' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XqkDqeAkj'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XqkDqeAkj' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gICgIGcrx'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gICgIGcrx' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OrjYcMlLB'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OrjYcMlLB' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'qVBmSGjVP'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'qVBmSGjVP' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'IfInFflBZ'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'IfInFflBZ' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'inFwWZsvo'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'inFwWZsvo' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'TNOABaYPK'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'TNOABaYPK' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nKuPnFKmA'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nKuPnFKmA' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XkqCNFpuS'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'XkqCNFpuS' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'mVzbujIwp'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'mVzbujIwp' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'SyPqFZspb'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'SyPqFZspb' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ixcBMOEJC'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ixcBMOEJC' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ysGfMFDVA'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ysGfMFDVA' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'KYRwmsFpW'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'KYRwmsFpW' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QQYdEzAIy'[0m
+  [1m[35mIox::CloudContainer Exists (0.3ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QQYdEzAIy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wOcafMPcg'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wOcafMPcg' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'iGQqGWTBy'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'iGQqGWTBy' LIMIT 1
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:41 UTC +00:00], ["name", "test"], ["public_key", "iGQqGWTBy"], ["updated_at", Fri, 08 Nov 2013 14:37:41 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'BVtuJvtnj'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'BVtuJvtnj' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:41 UTC +00:00], ["name", "test"], ["public_key", "BVtuJvtnj"], ["updated_at", Fri, 08 Nov 2013 14:37:41 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'shjFqmVqr'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'shjFqmVqr' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WBjyHdXaw'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WBjyHdXaw' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JxtIaeqfC'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JxtIaeqfC' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'eXlXvOLWd'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'eXlXvOLWd' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "eXlXvOLWd"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wrWMsyehe'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wrWMsyehe' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'PQHAKYKWP'
+  [1m[36mIox::CloudContainer Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'PQHAKYKWP' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LrfTTUVPH'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LrfTTUVPH' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "LrfTTUVPH"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UJVVgOfbW'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'UJVVgOfbW' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "UJVVgOfbW"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rgrDumqnI'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'rgrDumqnI' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "rgrDumqnI"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'AchcUOjFl'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'AchcUOjFl' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "AchcUOjFl"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JCVVoJVbY'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JCVVoJVbY' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "JCVVoJVbY"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LsrMENInc'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LsrMENInc' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "LsrMENInc"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'CNKxcQNtL'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'CNKxcQNtL' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "CNKxcQNtL"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'uNPUvzxwa'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'uNPUvzxwa' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "uNPUvzxwa"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yhDqiOKFk'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yhDqiOKFk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "yhDqiOKFk"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ynwdftqxD'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ynwdftqxD' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "ynwdftqxD"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DTWjuMZSi'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DTWjuMZSi' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "DTWjuMZSi"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'kxjHbzmxP'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'kxjHbzmxP' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "kxjHbzmxP"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DDcRkzncn'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'DDcRkzncn' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "DDcRkzncn"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZNFZCNcUF'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZNFZCNcUF' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "ZNFZCNcUF"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OreTSKMdx'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OreTSKMdx' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "OreTSKMdx"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zqddSbJhF'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zqddSbJhF' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00], ["name", "test"], ["public_key", "zqddSbJhF"], ["updated_at", Fri, 08 Nov 2013 14:37:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wjAaEYixU'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wjAaEYixU' LIMIT 1
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "wjAaEYixU"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QEHGKLhfp'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QEHGKLhfp' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "QEHGKLhfp"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'GWpEcZrUj'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'GWpEcZrUj' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "GWpEcZrUj"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'xhMONrMli'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'xhMONrMli' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "xhMONrMli"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'oyzUwpnjN'[0m
+  [1m[35mIox::CloudContainer Exists (0.2ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'oyzUwpnjN' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "oyzUwpnjN"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'iNRiNcTNa'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'iNRiNcTNa' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "iNRiNcTNa"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nUiadSuGB'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'nUiadSuGB' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "nUiadSuGB"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'fFMRtXXDp'
+  [1m[36mIox::CloudContainer Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'fFMRtXXDp' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "fFMRtXXDp"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WejpQVVLC'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WejpQVVLC' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "WejpQVVLC"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'fQHRIePam'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'fQHRIePam' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "fQHRIePam"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'GiBxWWxsC'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'GiBxWWxsC' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "GiBxWWxsC"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'xPvYPdogI'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'xPvYPdogI' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wCHFErPQm'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'wCHFErPQm' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WzOEEHDmM'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'WzOEEHDmM' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zrfUqPxyP'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'zrfUqPxyP' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pkfnpDEXH'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pkfnpDEXH' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'cULrWxllZ'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'cULrWxllZ' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "cULrWxllZ"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yMUSECDtX'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'yMUSECDtX' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00], ["name", "test"], ["public_key", "yMUSECDtX"], ["updated_at", Fri, 08 Nov 2013 14:38:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZUfAyMugD'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ZUfAyMugD' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00], ["name", "test"], ["public_key", "ZUfAyMugD"], ["updated_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QABaSlAGT'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'QABaSlAGT' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00], ["name", "test"], ["public_key", "QABaSlAGT"], ["updated_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RQqsUHITy'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RQqsUHITy' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00], ["name", "test"], ["public_key", "RQqsUHITy"], ["updated_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RPuXDiKXy'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RPuXDiKXy' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00], ["name", "test"], ["public_key", "RPuXDiKXy"], ["updated_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ibzHSkxJc'
+  [1m[36mIox::CloudContainer Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ibzHSkxJc' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00], ["name", "test"], ["public_key", "ibzHSkxJc"], ["updated_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'KRrHoygAg'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'KRrHoygAg' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00], ["name", "test"], ["public_key", "KRrHoygAg"], ["updated_at", Fri, 08 Nov 2013 14:38:05 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'irhrcRgHt'[0m
+  [1m[35mIox::CloudContainer Exists (0.2ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'irhrcRgHt' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'SfDpyQRlS'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'SfDpyQRlS' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'vdRUBPABi'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'vdRUBPABi' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OKxkJccNg'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'OKxkJccNg' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pzXSGHKyE'[0m
+  [1m[35mIox::CloudContainer Exists (0.3ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pzXSGHKyE' LIMIT 1
+  [1m[36mSQL (33.4ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "pzXSGHKyE"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LCadJzjSG'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LCadJzjSG' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'itlGUXIRq'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'itlGUXIRq' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "itlGUXIRq"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'SIOEOsHTd'[0m
+  [1m[35mIox::CloudContainer Exists (0.2ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'SIOEOsHTd' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "SIOEOsHTd"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RszHnKVxG'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'RszHnKVxG' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "RszHnKVxG"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'jUkizTLee'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'jUkizTLee' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "jUkizTLee"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'unDdPhcoI'
+  [1m[36mIox::CloudContainer Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'unDdPhcoI' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "unDdPhcoI"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VMfBMjruJ'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VMfBMjruJ' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "VMfBMjruJ"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YTerlABvL'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'YTerlABvL' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "YTerlABvL"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'EtCAFSGSk'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'EtCAFSGSk' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "EtCAFSGSk"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gXFTQZsQq'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'gXFTQZsQq' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "gXFTQZsQq"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JUBrcpqsq'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'JUBrcpqsq' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "JUBrcpqsq"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ATAyMGDBf'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'ATAyMGDBf' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "ATAyMGDBf"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'vXeTVSJQX'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'vXeTVSJQX' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "vXeTVSJQX"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LRlYEXjxl'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'LRlYEXjxl' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "LRlYEXjxl"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tjderMOMD'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'tjderMOMD' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "tjderMOMD"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'weiFuOJSu'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'weiFuOJSu' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "weiFuOJSu"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pnDkcKTtK'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'pnDkcKTtK' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "pnDkcKTtK"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VQHilssMB'
+  [1m[36mIox::CloudContainer Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'VQHilssMB' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "VQHilssMB"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FanDqWQMi'[0m
+  [1m[35mIox::CloudContainer Exists (0.1ms)[0m  SELECT 1 AS one FROM "iox_cloud_containers" WHERE "iox_cloud_containers"."public_key" = 'FanDqWQMi' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "iox_cloud_containers" ("created_at", "name", "public_key", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00], ["name", "test"], ["public_key", "FanDqWQMi"], ["updated_at", Fri, 08 Nov 2013 14:38:44 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m

@@ -11,9 +11,11 @@ module Iox
     end
 
     module ClassMethods
+
       def acts_as_iox_cloud_container(options = {})
 
         include InstanceMethods
+        extend ClassMethods
         has_iox_privileges
 
         attr_accessor :user
@@ -27,6 +29,38 @@ module Iox
         validates :public_key, presence: true, uniqueness: true
 
       end
+
+    end
+
+    module ClassMethods
+
+      # return the configured cloud path
+      # this should be configured in you application.rb file
+      # as config.iox.cloud_storage_path = 'path/to/file'
+      #
+      # relative or absolute path definition is possible
+      #
+      # raises Iox::Cloud::InvlaidPath if path cannot be created
+      #
+      def storage_path
+        path = ""
+        if Rails.configuration.iox.cloud_storage_path
+          if Rails.configuration.iox.cloud_storage_path[0,1] == '/'
+            path = Rails.configuration.iox.cloud_storage_path
+          else
+            path = File::join( Rails.root, Rails.configuration.iox.cloud_storage_path )
+          end
+        end
+
+        raise Iox::Cloud::InvalidPathError.new("no path given in application.rb (config.iox.cloud_storage_path needs to be set") if path.blank?
+
+        path = File::absolute_path( path )
+        FileUtils::mkdir_p( path ) unless File::exists?( path )
+        path
+      rescue Errno::EACCES
+        raise Iox::Cloud::InvalidPathError.new("path #{path} is not valid or cannot be created (permissions?) check application.rb")
+      end
+
     end
 
     module InstanceMethods
@@ -157,7 +191,7 @@ module Iox
       #
       # @return [string] path to this cloud container's git repository
       def storage_path
-        path = "#{Iox::CloudContainer.storage_path}/#{self.class.name.demodulize.underscore}/#{public_key}"
+        path = "#{self.class.storage_path}/#{self.class.name.demodulize.underscore}/#{public_key}"
         FileUtils::mkdir_p( path ) unless File::exists?( path )
         path
       end
