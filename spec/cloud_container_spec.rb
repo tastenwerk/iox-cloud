@@ -208,8 +208,17 @@ describe 'Iox::CloudContainer' do
       expect( cd ) .to be_true
     end
 
+    it "returns size of test-dir" do
+      @cc.add_file( 'test2.txt', 'test-dir', File::open( File::expand_path( '../fixtures/favicon.ico', __FILE__ ), 'r' ).read )
+      cd = @cc.get_directory( 'test-dir' )
+      expect( cd.size ).to eq(2)
+    end
+
     it "renames test-dir and all other files within test-dir" do
-      pending
+      @cc.add_file( 'test2.ico', 'test-dir', File::open( File::expand_path( '../fixtures/favicon.ico', __FILE__ ), 'r' ).read )
+      cd = @cc.get_directory( 'test-dir' )
+      expect( cd.list.first.name ).to eq( 'test.txt' )
+      expect( cd.list.last.name ).to eq( 'test2.ico' )
     end
 
   end
@@ -255,8 +264,20 @@ describe 'Iox::CloudContainer' do
 
   describe "#changes to file" do
 
+    before do
+      Rails.configuration.iox.cloud_storage_path = 'cloud-storage/'
+      @cc = Iox::CloudContainer.create! name: 'test', user: @user
+      @cc.add_file( 'test.txt', '/', File::open( File::expand_path( '../fixtures/test.txt', __FILE__ ), 'r' ).read )
+      @cc.commit
+    end
+
     it "changes a file's content" do
-      pending
+      file = @cc.get_file( 'test.txt' )
+      expect( file.read ).to eq( File::open( File::expand_path( '../fixtures/test.txt', __FILE__ ), 'r' ).read )
+      file.write( File::open( File::expand_path('../fixtures/favicon.ico', __FILE__ ) ).read )
+      file.commit
+      file = @cc.get_file( 'test.txt' )
+      expect( file.read.size ).to eq( File::open( File::expand_path( '../fixtures/favicon.ico', __FILE__ ), 'r' ).read.size )
     end
 
   end

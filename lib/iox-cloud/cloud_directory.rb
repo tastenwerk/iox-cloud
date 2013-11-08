@@ -8,9 +8,10 @@ module Iox
                   :atime,
                   :mtime
 
-    def initialize( attrs, user, repo )
+    def initialize( attrs, user, repo, cloud_container )
 
       @repo = repo
+      @cloud_container = cloud_container
       @user = user
 
       attrs.each do |key,val|
@@ -54,6 +55,19 @@ module Iox
       options[:parents] = @repo.empty? ? [] : [ @repo.head.target ].compact
       options[:update_ref] = 'HEAD'
       Rugged::Commit.create(@repo, options)
+    end
+
+    # lists amount of files with path of this directory
+    # @return [Integer] amount of files within this directory
+    #
+    def size
+      list.size
+    end
+
+    # lists files and directories in this directory
+    #
+    def list
+      @cloud_container.list( absolute_path )
     end
 
     private

@@ -46,7 +46,7 @@ module Iox
             arr << CloudFile.new( ientry, user, @repo )
           elsif !folders.include?( File::dirname( ientry[:path] ) ) &&
                 ientry[:path].include?( '/' )
-            arr << CloudDirectory.new( ientry, user, @repo )
+            arr << CloudDirectory.new( ientry, user, @repo, self )
             folders << File::dirname( ientry[:path] )
           end
           arr
@@ -72,7 +72,7 @@ module Iox
         git_init unless @repo
         @repo.index.each do |ientry|
           next unless File::dirname(ientry[:path]) == path
-          return CloudDirectory.new( ientry, user, @repo )
+          return CloudDirectory.new( ientry, user, @repo, self )
         end
       end
 
