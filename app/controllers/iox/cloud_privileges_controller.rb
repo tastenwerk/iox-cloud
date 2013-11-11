@@ -12,7 +12,7 @@ module Iox
           priv = @cloud_container.privileges.build
           priv.email = params[:privilege][:email]
           priv.gen_access_key
-          priv.expires_at = cloud_container.access_expires
+          priv.expires_at = @cloud_container.access_expires
           if priv.save
             flash.notice = I18n.t('cloud_container.privilege.confirm_next')
             CloudPrivilegesMailer.email_invitation( params[:privilege][:email], get_full_key( priv ) ).deliver
