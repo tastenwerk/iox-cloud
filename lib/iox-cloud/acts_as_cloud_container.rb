@@ -16,17 +16,19 @@ module Iox
 
         include InstanceMethods
         extend ClassMethods
-        has_iox_privileges
 
         attr_accessor :user
 
-        before_validation :gen_public_key, on: :create
+        belongs_to :creator, class_name: 'Iox::User', foreign_key: :created_by
+        belongs_to :updater, class_name: 'Iox::User', foreign_key: :updated_by
 
-        before_create :git_init_bare
+        before_create :set_creator_and_updater
 
+        before_destroy :cleanup_repos
+
+        after_create :git_init_bare
         validates :name, presence: true
         validates :user, presence: true
-        validates :public_key, presence: true, uniqueness: true
 
       end
 
@@ -72,7 +74,9 @@ module Iox
       #
       def list( path = '.' )
         git_init unless @repo
-        #head = @repo.lookup( @repo.head.target )
+        @repo.index.reload
+        puts "storage: #{storage_path}"
+        # => head = @repo.lookup( @repo.head.target )
         #head.tree.inject([]) do |arr,obj|
         folders = []
         @repo.index.entries.inject([]) do |arr, ientry|
@@ -152,23 +156,14 @@ module Iox
         options[:parents] = @repo.empty? ? [] : [ @repo.head.target ].compact
         options[:update_ref] = 'HEAD'
         Rugged::Commit.create(@repo, options)
+        @repo.index.write
       end
 
-      def set_creator_and_updater( user )
+      def set_creator_and_updater( user=user )
         if new_record?
           self.creator = user
         end
         self.updater = user
-      end
-
-      def gen_public_key
-        o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
-        self.public_key = (0..8).map{ o[rand(o.length)] }.join
-        if self.class.where( public_key: public_key ).count > 0
-          @gen_public_key_trials ||= 0
-          @gen_public_key_trials += 1
-          gen_public_key
-        end
       end
 
       def git_init_bare
@@ -180,6 +175,7 @@ module Iox
       def git_init( bare=nil )
         raise Iox::Cloud::InvalidUserError unless user
         if bare == :bare
+          puts "CREATING BARE with #{id}"
           create_plain_repos
         else
           @repo = Rugged::Repository.new storage_path
@@ -191,7 +187,7 @@ module Iox
       #
       # @return [string] path to this cloud container's git repository
       def storage_path
-        path = "#{self.class.storage_path}/#{self.class.name.demodulize.underscore}/#{public_key}"
+        path = "#{self.class.storage_path}/#{self.class.name.demodulize.underscore}/#{id}"
         FileUtils::mkdir_p( path ) unless File::exists?( path )
         path
       end
@@ -209,6 +205,18 @@ module Iox
         options[:parents] = []
         options[:update_ref] = 'HEAD'
         Rugged::Commit.create(@repo, options)
+      end
+
+      def cleanup_repos
+        FileUtils::rm_rf storage_path
+      end
+
+      # touches a cloud container and
+      # updates updated_at and updated_by
+      #
+      def touch
+        self.updated_at = Time.now
+        self.updated_by = user.id
       end
 
       private

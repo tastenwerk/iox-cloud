@@ -29,11 +29,13 @@ ActiveRecord::Schema.define(version: 20130922172200) do
 
   create_table "iox_cloud_containers", force: true do |t|
     t.string   "name"
-    t.integer  "access",                default: 1
-    t.date     "public_access_expires"
-    t.string   "public_key"
-    t.datetime "created_at"
+    t.integer  "created_by"
     t.integer  "updated_by"
+    t.integer  "access",               default: 3
+    t.integer  "access_counter_quota"
+    t.date     "access_expires"
+    t.string   "access_key"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 
@@ -51,12 +53,20 @@ ActiveRecord::Schema.define(version: 20130922172200) do
   end
 
   create_table "iox_privileges", force: true do |t|
-    t.boolean  "can_write",  default: false
-    t.boolean  "can_delete", default: false
-    t.boolean  "can_share",  default: false
+    t.boolean  "can_write",            default: false
+    t.boolean  "can_delete",           default: false
+    t.boolean  "can_share",            default: false
+    t.string   "email"
+    t.string   "access_key"
+    t.integer  "access_counter_quota", default: 0
+    t.integer  "access_counter"
+    t.datetime "expires_at"
     t.integer  "created_by"
     t.integer  "updated_by"
+    t.string   "type"
     t.integer  "user_id"
+    t.integer  "accessible_id"
+    t.string   "accessible_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

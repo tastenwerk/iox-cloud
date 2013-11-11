@@ -16,7 +16,7 @@ module Iox
         else
           @cloud_containers = CloudContainer.where("name LIKE ?", "%#{params[:query]}%")
         end
-        @cloud_containers = @cloud_containers.where(type: nil).order(:name).load
+        @cloud_containers = @cloud_containers.order(:name).load
         render json: { items: @cloud_containers }
       end
     end
@@ -26,6 +26,7 @@ module Iox
     #
     def new
       @cloud_container = CloudContainer.new
+      @cloud_container.gen_access_key
       render json: @cloud_container
     end
 
@@ -34,12 +35,10 @@ module Iox
     #
     def create
       @cloud_container = CloudContainer.new cloud_container_params
-      return if !redirect_if_no_rights
-      @cloud_container.set_creator_and_updater( current_user )
+      @cloud_container.user = current_user
+      return if redirect_if_no_app_access( :write )
       if @cloud_container.save
-
         Iox::Activity.create! user_id: current_user.id, obj_name: @cloud_container.name, action: 'created', icon_class: 'CloudContainer', obj_id: @cloud_container.id, obj_type: @cloud_container.class.name
-
         flash.notice = I18n.t('created', name: @cloud_container.name)
       else
         flash.alert = I18n.t('creation_failed') + ": " + @cloud_container.errors.full_messages.inspect
@@ -70,13 +69,11 @@ module Iox
     #
     def update
       @cloud_container = CloudContainer.where( id: params[:id] ).first
-      return if !redirect_if_no_cloud_container
-      return if !redirect_if_no_rights
-      @cloud_container.set_creator_and_updater( current_user )
+      @cloud_container.user = current_user
+      return if redirect_if_no_app_access( :write )
+      return if redirect_if_not_owner( @cloud_container )
       if @cloud_container.update cloud_container_params
-
         Iox::Activity.create! user_id: current_user.id, obj_name: @cloud_container.name, action: 'edited', icon_class: 'icon-cloud', obj_id: @cloud_container.id, obj_type: @cloud_container.class.name
-
         flash.now.notice = I18n.t('saved', name: @cloud_container.name)
       else
         flash.now.alert = t('saving_failed', name: @cloud_container)
@@ -86,19 +83,14 @@ module Iox
 
     def destroy
       @cloud_container = CloudContainer.where( id: params[:id] ).first
-      return if !redirect_if_no_cloud_container
-      return if !redirect_if_no_rights
-      if @cloud_container.delete
-        @cloud_container.children.each{ |c| c.delete }
+      return if redirect_if_no_app_access( :write )
+      return if redirect_if_not_owner( @cloud_container )
+      if @cloud_container.destroy
         flash.now.notice = t('cloud_container.deleted', name: @cloud_container.name, id: @cloud_container.id)
       else
         flash.now.alert = t('cloud_container.failed_to_delete', name: @cloud_container.name)
       end
-      if request.xhr?
-        render json: { flash: flash, success: flash[:alert].blank? }
-      else
-        redirect_to cloud_containers_path
-      end
+      render json: { flash: flash, success: flash[:alert].blank? }
     end
 
     private
@@ -107,7 +99,8 @@ module Iox
       params.require(:cloud_container).permit(
         :name,
         :access,
-        :public_access_expires
+        :access_expires,
+        :access_key
       )
     end
 

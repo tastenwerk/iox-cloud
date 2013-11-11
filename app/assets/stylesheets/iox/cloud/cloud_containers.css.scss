@@ -1,0 +1,53 @@
+#iox-content-details .select-files{
+  border: 1px solid #EEEEEE;
+  color: #777777;
+  float: right;
+  height: 20px;
+  position: relative;
+  width: 100px;
+  text-align:  center;
+  padding: 7px 0;
+  font-size: 12px;
+}
+#iox-content-details .select-files .icon-cloud-upload{
+  font-size: 16px;
+}
+#iox-content-details .select-files:hover{
+  background: #333;
+  color: #fff;
+}
+#iox-content-details .select-files .drop-here{ background: #08c; color: #fff; }
+#iox-content-details .select-files input[type=file]{
+  opacity: 0; position: absolute; top: 0; left: 0;
+  width: 100px;
+  height: 34px; z-index: 3; cursor: pointer;
+}
+#iox-content-details .select-files .progress{
+  height: 5px;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  border: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+#iox-content-details .select-files .progress .bar{
+  background-color: #3F95FF;
+  height: 5px;
+  width: 0;
+}
+#iox-content-details .select-files .progress-num{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 5px;
+  font-size: 16px;
+  text-align: center;
+  padding: 3px;
+  color: #555;
+  background: #eee;
+  display: none;
+}

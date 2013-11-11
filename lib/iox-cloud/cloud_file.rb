@@ -67,6 +67,25 @@ module Iox
       options[:parents] = @repo.empty? ? [] : [ @repo.head.target ].compact
       options[:update_ref] = 'HEAD'
       Rugged::Commit.create(@repo, options)
+      @repo.index.write
+      true
+    end
+
+    # basic to_hash functionality
+    #
+    def to_hash
+      { name: name,
+        id: oid,
+        content_type: File::extname(name).sub('.',''),
+        filesize: (read.size / 1000.0),
+        absolute_path: absolute_path,
+        path: path,
+        updated_at: mtime,
+        created_at: ctime }
+    end
+
+    def to_json
+      to_hash
     end
 
     private

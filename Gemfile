@@ -7,6 +7,7 @@ source "https://rubygems.org"
 gem 'rails', '4.0.0'
 gem 'sqlite3'
 gem "iox-cms", path: '../iox-cms'
+gem "iox-accessible-links", path: '../iox-accessible-links'
 gem "git", "~> 1.2.6"
 gem "rugged"
 gem "rspec-rails"

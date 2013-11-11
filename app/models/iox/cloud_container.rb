@@ -5,7 +5,8 @@ module Iox
   class CloudContainer < ActiveRecord::Base
 
     acts_as_iox_cloud_container
-    has_many :privileges
+    has_accessible_links
+    has_privileges
 
   end
 end

@@ -168,6 +168,25 @@ describe 'Iox::CloudContainer' do
 
   end
 
+  describe "reload cc and retrieve files again" do
+
+    before do
+      Rails.configuration.iox.cloud_storage_path = 'cloud-storage/'
+      @cc = Iox::CloudContainer.create! name: 'test', user: @user
+      @cc.add_file( 'favicon.ico', '', File::open( File::expand_path( '../fixtures/favicon.ico', __FILE__ ), 'r' ).read )
+      @cc.add_file( 'test.txt', '', File::open( File::expand_path( '../fixtures/test.txt', __FILE__ ), 'r' ).read )
+      @cc.commit
+      @cc = Iox::CloudContainer.where( id: @cc.id ).first
+      @cc.user = @user
+    end
+
+    it "still finds 2 objects after cloud container has been reinitialized" do
+      expect( @cc.list.size ).to eq(2)
+    end
+
+  end
+
+
   describe "#rename a file" do
 
     before do

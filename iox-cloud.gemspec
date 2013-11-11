@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-rails'
 
   spec.add_dependency "iox-cms", "~> 0.1.2"
+  spec.add_dependency "iox-accessible-links", "~> 0.0.1"
   spec.add_dependency "rugged", "~> 0.19.0"
 
 end

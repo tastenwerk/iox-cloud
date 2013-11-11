@@ -1,11 +1,8 @@
 module IoxCloud
   # Provides helper methods that can be used in migrations.
   module Schema
-    COLUMNS = { :name         => :string, 
-                :access       => [ :integer, { default: 1 } ],
-                :public_access_expires   => :date,
-                :public_key   => :string,
-                :created_at   => :integer,
+    COLUMNS = { :name         => :string,
+                :created_by   => :integer,
                 :updated_by   => :integer }
 
     def self.included(base)
@@ -18,8 +15,8 @@ module IoxCloud
     module Statements
       def add_cloud_container(table_name)
         COLUMNS.each_pair do |column_name, column_arr|
-          add_column(table_name, "#{column_name}", 
-                                  IoxCloud::Schema.get_column_type(column_arr), 
+          add_column(table_name, "#{column_name}",
+                                  IoxCloud::Schema.get_column_type(column_arr),
                                   IoxCloud::Schema.get_column_opts(column_arr) )
         end
       end
@@ -36,7 +33,7 @@ module IoxCloud
       def cloud_container
         COLUMNS.each_pair do |column_name, column_arr|
           column("#{column_name}",
-                  IoxCloud::Schema.get_column_type(column_arr), 
+                  IoxCloud::Schema.get_column_type(column_arr),
                   IoxCloud::Schema.get_column_opts(column_arr) )
         end
       end

@@ -1,3 +1,10 @@
+<%= content_for :add_js do %>
+  <%= javascript_include_tag "iox/cloud/cloud_containers" %>
+<% end %>
+<%= content_for :add_css do %>
+  <%= stylesheet_link_tag "iox/cloud/cloud_containers", media: "all" %>
+<% end %>
+
 <div class="iox-sidebar">
 
   <!--<div class="iox-sidebar-arrow"></div>-->
@@ -36,19 +43,15 @@
   <li data-bind=" attr: { 'data-id': id, id: 'item_'+id }, click: markItem">
     <div class="item clearfix" data-bind=" css: { selected: _selected, hide: _hide }">
       <div class="actions">
-        <a class="action-icon publish-action" data-bind="click: publishItem">
-          <i class="icon-ban-circle success published-status" data-bind="css: { 'hide': published() }" rel="tooltip" title="<%= t('webpage.publish') %>"></i>
-          <i class="icon-ok-sign published-status" data-bind="css: { 'hide': !published() }" rel="tooltip" title="<%= t('webpage.unpublish') %>"></i>
-        </a>
-        <!-- ko if: is_public() -->
+        <!-- ko if: access() < <%= Iox::AccessibleLinks::Rules::PRIVATE %> -->
         <span class="icon-unlock" title="<%= t('cloud_container.is_public') %>"></span>
         <!-- /ko -->
-        <!-- ko if: is_private() -->
+        <!-- ko if: access() === <%= Iox:: AccessibleLinks::Rules::PRIVATE %> -->
         <span class="icon-lock" title="<%= t('cloud_container.is_private') %>"></span>
         <!-- /ko -->
       </div>
       <a class="title" data-bind="click: listContent, attr: { title: name }, text: name"></a>
-      &nbsp;&nbsp;<span class="desc" data-bind="text: public_access_expires() ? moment(public_access_expires()).format('YYYY-MM-DD') : ''"></span>
+      &nbsp;&nbsp;<span class="desc" data-bind="text: access_expires() ? moment(access_expires()).format('YYYY-MM-DD') : ''"></span>
     </div>
   </li>
 </script>
@@ -59,7 +62,7 @@
 
     $('#iox-content-list').ioxTree({
       url: '/iox/cloud_containers',
-      observe: ['name', 'access', 'public_access_expires'],
+      observe: ['name', 'access', 'access_expires'],
       control: $('.iox-tree-control'),
       i18n:{
         noEntriesFound: '<%= t('filter_no_entries_found') %>'
@@ -180,6 +183,137 @@
       $(".datepicker").kendoDatePicker({ format: 'yyyy-MM-dd'}).on('click', function(){
         $(this).data("kendoDatePicker").open();
       });
+      $('#iox-content-details .iox-tabs').ioxTabs();
+      if( item.id && item.id > 0 )
+        setupFilesTable( item );
     }
+
+    function setupFilesTable( item ){
+
+      var kGrid = $('#iox-content-details .files-grid').kendoGrid({
+        columns: [
+          { field: "name", title: "<%= t('cloud_container.filename') %>" },
+          { field: 'content_type', title: '<%= t('cloud_container.content_type') %>',
+            width: 80 },
+          { field: 'filesize', title: '<%= t('cloud_container.filesize') %>',
+            width: 120,
+            attributes: {
+              style: 'text-align: right'
+            }
+          },
+          { field: 'updated_at',
+            title: '<%= t('updated_at') %>',
+            format: '{0:dd.MM.yyyy HH:mm}',
+            width: 120,
+            attributes: {
+              style: 'text-align: right'
+            }
+          },
+          { command:
+            [
+              { name: 'edit' },
+              { name: 'destroy' }
+            ],
+            width: 160
+          }
+        ],
+        dataSource: {
+          type: "json",
+          transport: {
+            read: {
+              url: '/iox/cloud_containers/'+item.id+'/repos',
+              dataType: 'json',
+              data: function(){
+                return {};
+              }
+            },
+            update: {
+              url: '/iox/cloud_containers/'+item.id+'/repos/x',
+              dataType: 'json',
+              type: 'patch'
+            },
+            destroy: {
+              url: '/iox/cloud_containers/'+item.id+'/repos/x',
+              type: 'delete',
+              dataType: 'json'
+            }
+          },
+          schema: {
+            total: 'total',
+            data: function(response) {
+              return response.items;
+            },
+            model: {
+              fields: {
+                id: { type: 'string' },
+                name: { type: 'string' },
+                content_type: { type: 'string', editable: false },
+                filesize: { type: 'number', editable: false },
+                path: { type: 'string', editable: false },
+                absolute_path: { type: 'string', editable: false },
+                updated_at: { type: 'date', editable: false }
+              }
+            }
+          },
+          serverPaging: true,
+          serverFiltering: true,
+          serverSorting: true,
+          sort: { field: "name", dir: "asc" }
+        },
+        height: $(window).height()-170,
+        selectable: "multiple",
+        resizable: true,
+        navigatable: true,
+        sortable: true,
+        editable: "inline",
+        pageable: {
+          refresh: true,
+          pageSize: 30,
+          pageSizes: [10, 30, 50, 100]
+        }
+      });
+
+      $('#upload-file').fileupload({
+        url: '/iox/cloud_containers/'+item.id+'/repos',
+        dataType: 'json',
+        formData: {
+          "authenticity_token": $('input[name="authenticity_token"]:first').val()
+        },
+        dragover: function( e ){
+          $(this).closest('.select-files').addClass('drop-here');
+        },
+        done: function (e, data) {
+          var file = data._response.result;
+          var self = this;
+          setTimeout( function(){
+            $(self).closest('.select-files').find('.progress').hide();
+            $(self).closest('.select-files').find('.progress .bar').css( 'width', 0 );
+            $(self).closest('.select-files').find('.progress-num').fadeOut();
+            $('#upload-file').show();
+          }, 1000 );
+          // reload dataSource
+          kGrid.data('kendoGrid').dataSource.read();
+        },
+        fail: function( response, type, msg ){
+          console.log( response, type, msg );
+          iox.flash.alert( JSON.parse(response.responseText).errors.file[0] );
+        },
+        submit: function( e, data ){
+          $('#upload-file').hide();
+          $(self).closest('.select-files').find('.progress').show();
+          $(this).closest('.select-files').find('.progress-num').fadeIn();
+        },
+        progressall: function (e, data) {
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          $(this).closest('.select-files').find('.progress-num').text( progress + '%' );
+          $(this).closest('.select-files').find('.progress .bar').css( 'width', progress + '%' );
+        }
+      });
+
+    }
+
+
+
   });
+
 </script>

@@ -8,8 +8,12 @@ Rails.backtrace_cleaner.remove_silencers!
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
-require 'fileutils'
-FileUtils.rm_rf( File.expand_path( '../dummy/cloud-storage/', __FILE__  ) )
+def cleanup
+  require 'fileutils'
+  FileUtils.rm_rf( File.expand_path( '../dummy/cloud-storage/', __FILE__  ) )
+end
+
+cleanup
 
 RSpec.configure do |config|
   config.mock_with :rspec

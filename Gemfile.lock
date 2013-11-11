@@ -1,7 +1,13 @@
 PATH
+  remote: ../iox-accessible-links
+  specs:
+    iox-accessible-links (0.0.1)
+      iox-cms (~> 0.1.2)
+
+PATH
   remote: ../iox-cms
   specs:
-    iox-cms (0.1.2)
+    iox-cms (0.1.3)
       bcrypt-ruby (~> 3.0.1)
       jquery-rails
       mini_magick
@@ -143,6 +149,7 @@ PLATFORMS
 
 DEPENDENCIES
   git (~> 1.2.6)
+  iox-accessible-links!
   iox-cms!
   rails (= 4.0.0)
   rspec-rails

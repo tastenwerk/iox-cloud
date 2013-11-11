@@ -55,6 +55,8 @@ module Iox
       options[:parents] = @repo.empty? ? [] : [ @repo.head.target ].compact
       options[:update_ref] = 'HEAD'
       Rugged::Commit.create(@repo, options)
+      @repo.index.write
+      true
     end
 
     # lists amount of files with path of this directory
