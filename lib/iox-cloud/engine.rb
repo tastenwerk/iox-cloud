@@ -20,9 +20,12 @@ module Iox
         )
       end
 
-
       if defined?( ActiveRecord )
-        ActiveRecord::Base.send( :include, IoxCloud::Schema )
+        ActiveRecord::Base.send( :include, Iox::Cloud::Schema )
+      end
+
+      initializer :extend_webpage, after: :bootstrap_hook do |app|
+        Iox::Webpage::send( :include, Iox::Cloud::WebpagesExtensions )
       end
 
       initializer :append_migrations do |app|

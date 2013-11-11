@@ -77,7 +77,7 @@ module Iox
       { name: name,
         id: oid,
         content_type: File::extname(name).sub('.',''),
-        filesize: (read.size / 1000.0),
+        filesize: read.size,
         absolute_path: absolute_path,
         path: path,
         updated_at: mtime,

@@ -5,7 +5,7 @@ require 'iox-cloud/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "iox-cloud"
-  spec.version       = IoxCloud::VERSION
+  spec.version       = Iox::Cloud::VERSION
   spec.authors       = ["thorsten zerha"]
   spec.email         = ["thorsten.zerha@tastenwerk.com"]
   spec.description   = %q{Cloud storage plugin combined with git let's you manage files on webpages and provide file access to different parties

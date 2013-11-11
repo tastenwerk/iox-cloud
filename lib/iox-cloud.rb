@@ -11,3 +11,7 @@ require "iox-cloud/cloud_directory"
 
 require "iox-cloud/errors/invalid_path_error"
 require "iox-cloud/errors/invalid_user_error"
+
+# extensions
+
+require "iox-cloud/webpages_extensions"

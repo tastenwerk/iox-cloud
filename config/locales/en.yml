@@ -32,6 +32,13 @@ en:
     filename: "Filename"
     filesize: "Size"
     upload: "Upload"
+    privilege:
+      confirm_next: "An email has been sent to the email provided email address. Please have a look at your Inbox and eventually check your spam-folder."
+      email_failed: "Sending invitation email failed"
+      email_sent_again: "This email address is already registered. We have sent an invitation key again."
+      wrong_key: "Wrong invitation key"
+      mailer:
+        subject: "Please confirm your request"
 
   cloud_file:
     removed: "'%{name}' has been removed from this container"
@@ -39,3 +46,8 @@ en:
     not_found: "'%{name}' could not be found inside this container"
     renamed: "'%{name}' has been renamed to '%{new_name}'"
     renaming_failed: "Renaming of '%{name}' failed"
+
+  webpage:
+    link_to_shared_folder: "Link shared folder"
+    templates:
+      shared_folder: "Shared folder"

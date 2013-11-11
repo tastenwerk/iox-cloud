@@ -199,7 +199,8 @@
             width: 120,
             attributes: {
               style: 'text-align: right'
-            }
+            },
+            footerTemplate: "#: iox.formatHelper.Filesize( sum, true ) #"
           },
           { field: 'updated_at',
             title: '<%= t('updated_at') %>',
@@ -255,6 +256,7 @@
               }
             }
           },
+          aggregate: [ { field: "filesize", aggregate: "sum" } ],
           serverPaging: true,
           serverFiltering: true,
           serverSorting: true,

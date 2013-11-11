@@ -75,9 +75,6 @@ module Iox
       def list( path = '.' )
         git_init unless @repo
         @repo.index.reload
-        puts "storage: #{storage_path}"
-        # => head = @repo.lookup( @repo.head.target )
-        #head.tree.inject([]) do |arr,obj|
         folders = []
         @repo.index.entries.inject([]) do |arr, ientry|
           if File::dirname( ientry[:path] ) == path
@@ -148,6 +145,7 @@ module Iox
       # @param message [String] a commit message (optional)
       #
       def commit( message = "auto-message" )
+        raise Iox::Cloud::InvalidUserError unless user
         options = { message: message }
         options[:tree] = @repo.index.write_tree(@repo)
         options[:author] = user_opts
@@ -173,9 +171,7 @@ module Iox
       # initializes this cloud container's git repository
       #
       def git_init( bare=nil )
-        raise Iox::Cloud::InvalidUserError unless user
         if bare == :bare
-          puts "CREATING BARE with #{id}"
           create_plain_repos
         else
           @repo = Rugged::Repository.new storage_path
@@ -193,6 +189,7 @@ module Iox
       end
 
       def create_plain_repos
+        raise Iox::Cloud::InvalidUserError unless user
         @repo = Rugged::Repository.init_at storage_path, :bare
         oid = @repo.write("", :blob)
         @repo.index.add(:path => ".git_keep", :oid => oid, :mode => 0100644)

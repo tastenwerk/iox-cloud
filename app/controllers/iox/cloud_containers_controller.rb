@@ -3,7 +3,7 @@ require_dependency "iox/application_controller"
 module Iox
   class CloudContainersController < ApplicationController
 
-    before_filter :authenticate!, except: [ :frontpage, :show, :by_slug ]
+    before_filter :authenticate!, except: [ :crypted, :get_file ]
 
     #
     # list all cloud_containers
@@ -91,6 +91,30 @@ module Iox
         flash.now.alert = t('cloud_container.failed_to_delete', name: @cloud_container.name)
       end
       render json: { flash: flash, success: flash[:alert].blank? }
+    end
+
+    def crypted
+      @frontpage = Webpage.where( template: 'frontpage', deleted_at: nil ).first
+      if info = Base64.decode64( params[:k] )
+        cloud_container_id, key, email = info.split(',')
+        @cloud_container = CloudContainer.find_by_id( cloud_container_id )
+        cookies[:cc_id] = @cloud_container.id
+        @webpage = @cloud_container.webpage
+      else
+        flash.alert = I18n.t('cloud_container.privilege.wrong_key')
+      end
+      render layout: 'application'
+    end
+
+    def get_file
+      if @cloud_container = CloudContainer.find_by_id( cookies[:cc_id] )
+        path = Base64.decode64( params[:path] )
+        puts path
+        file = @cloud_container.get_file( path )
+        send_data file.read, filename: file.name
+      else
+        render status: 401, text: 'not allowed'
+      end
     end
 
     private

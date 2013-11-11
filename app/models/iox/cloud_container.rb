@@ -8,5 +8,7 @@ module Iox
     has_accessible_links
     has_privileges
 
+    has_one :webpage, class_name: 'Iox::Webpage'
+
   end
 end
