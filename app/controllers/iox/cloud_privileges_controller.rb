@@ -6,7 +6,7 @@ module Iox
     def create
       if @cloud_container = Iox::CloudContainer.find_by_id( params[:cloud_container_id] )
         if priv = @cloud_container.privileges.where(email: params[:privilege][:email]).first
-          CloudPrivilegesMailer.email_invitation( params[:privilege][:email], get_full_key(priv) ).deliver
+          PrivilegesMailer.email_invitation( params[:privilege][:email], get_full_key(priv) ).deliver
           flash.notice = I18n.t('cloud_container.privilege.email_sent_again')
         else
           priv = @cloud_container.privileges.build
@@ -15,7 +15,7 @@ module Iox
           priv.expires_at = @cloud_container.access_expires
           if priv.save
             flash.notice = I18n.t('cloud_container.privilege.confirm_next')
-            CloudPrivilegesMailer.email_invitation( params[:privilege][:email], get_full_key( priv ) ).deliver
+            PrivilegesMailer.email_invitation( params[:privilege][:email], get_full_key( priv ) ).deliver
           else
             flash.alert = I18n.t('cloud_container.privilege.email_failed')
           end
