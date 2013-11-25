@@ -19,6 +19,4 @@ rerun.txt
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb
-spec/dummy/cloud-storage
-spec/dummy/log/*
-spec/dummy/tmp/*
+.DS_Store
