@@ -1,4 +1,4 @@
-Rails.configuration.iox.plugins << Iox::Plugin.new( name: 'calendar',
+Rails.configuration.iox.plugins << Iox::Plugin.new( name: 'cloud_containers',
                                                     roles: [],
-                                                    icon: 'icon-calendar-o',
-                                                    path: '/iox/calendar' )
+                                                    icon: 'icon-cloud',
+                                                    path: '/iox/cloud_containers' )
